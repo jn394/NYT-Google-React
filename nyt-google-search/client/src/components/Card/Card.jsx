@@ -1,8 +1,9 @@
 import React from "react";
+import './Card.css';
 
 function Card({ children }) {
     return (
-        <div className="card">{children}</div>
+        <div className="card shadow">{children}</div>
     );
 }
 

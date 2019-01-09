@@ -40,27 +40,25 @@ class Search extends Component {
 
     // Once clicked the state is changed to the specific value of the book and a post request to db
     saveBookBTN = book => {
-        // event.preventDefault();
         API.saveBook({
             title: book.title,
             author: book.author,
             description: book.description,
             image: book.image,
             link: book.link
-        })
-
+        });
     }
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <h1 className="text-center">Search a book!</h1>
                 <SearchForm
                     value={this.state.search}
                     handleFormSubmit={this.handleFormSubmit}
                     handleInputChange={this.handleInputChange}
                 />
-                <h1>Results: </h1>
+                <h2>Results: </h2>
                 <SearchResults>
                     {console.log(this.state.results)}
                     {this.state.results.map(result => (
@@ -83,11 +81,11 @@ class Search extends Component {
                                         )
                                     }}
                                 />
-                                {/* <div>Written by: {result.volumeInfo.authors.map(writers => (
-                                    <p key={writers.id}>{writers}</p>
-                                ))}</div> */}
+                                <div>Written by: {result.volumeInfo.authors.map(author => (
+                                    <p key={author.id}>{author}</p>
+                                ))}</div>
                                 <img src={result.volumeInfo.imageLinks.thumbnail} alt="thumbnail"></img>
-                                <p>{result.volumeInfo.description}</p>
+                                <p className="descrip">{result.volumeInfo.description}</p>
                             </div>
                         </Card>
                     ))}

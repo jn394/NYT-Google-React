@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import './Navbar.css';
 
-function Navbar(prop) {
+function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg fixed-top">
             <h2 className="navbar-brand">Google Search</h2>

@@ -1,0 +1,9 @@
+.jumbotron {
+    background-image: url("https://cdn.wallpapersafari.com/15/87/2Nl5Xi.jpg");
+    height: 350px;
+    color: white;
+}
+
+.jumboText {
+    margin-top: 50px;
+}

@@ -2,7 +2,7 @@ import React from "react";
 
 function SaveBTN(props) {
     return(
-        <button className="btn" {...props}>Save</button>
+        <button className="btn btn-success cardBTN" {...props}>Save</button>
     );
 }
 

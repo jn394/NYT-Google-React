@@ -1,0 +1,26 @@
+.authors {
+    margin-bottom: 10px;
+}
+
+img {
+    float: left;
+    margin: 10px 20px 10px 10px;
+}
+
+.descrip {
+    text-indent: 30px;
+}
+
+.card {
+    margin-bottom: 10px;
+}
+
+.card-header {
+    background-color: rgb(197, 181, 157);
+}
+
+.cardBTN {
+    margin:5px;
+    float: right;
+    /* float: right; */
+}

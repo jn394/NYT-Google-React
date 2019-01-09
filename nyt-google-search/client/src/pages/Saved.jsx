@@ -33,9 +33,8 @@ class Saved extends Component {
 
     render() {
         return (
-            <div>
-                Saved Page!
-
+            <div className="container">
+                <h2 className="mb-2">Saved Pages:</h2>
                 <SearchResults>
                     {console.log(this.state.books)}
                     {this.state.books.map(book => (
@@ -46,9 +45,9 @@ class Saved extends Component {
                             <div className="card-body">
                                 <ViewBTN link={book.link} />
                                 <DeleteBTN onClick={() => this.deleteBook(book._id)} />
-                                <div>Written by: {book.author}</div>
+                                <div>Written by: <p>{book.author}</p></div>
                                 <img src={book.image} alt="thumbnail"></img>
-                                <p>{book.description}</p>
+                                <p className="descrip">{book.description}</p>
                             </div>
                         </Card>
                     ))}

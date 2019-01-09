@@ -5,11 +5,12 @@ import Jumbotron from './components/Jumbotron';
 import Search from './pages/Search';
 import Saved from './pages/Saved';
 import Wrapper from "./components/Wrapper";
+import "./App.css";
 
 function App() {
   return (
     <Router>
-      <div>
+      <div className="page">
         <Navbar />
         <Jumbotron />
         <Wrapper>
