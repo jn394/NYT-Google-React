@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SearchResults from '../components/SearchResults';
 import Card from '../components/Card';
-// import ViewBTN from '../components/ViewBTN';
+import ViewBTN from '../components/ViewBTN';
 import API from '../utils/API';
 import DeleteBTN from "../components/DeleteBTN";
 
@@ -44,11 +44,11 @@ class Saved extends Component {
                                 <h3>{book.title}</h3>
                             </div>
                             <div className="card-body">
-                                {/* <ViewBTN link={book.link} /> */}
-                                {/* <div>Written by: {book.author}</div> */}
-                                {/* <img src={book.image} alt="thumbnail"></img>
-                                <p>{book.description}</p> */}
+                                <ViewBTN link={book.link} />
                                 <DeleteBTN onClick={() => this.deleteBook(book._id)} />
+                                <div>Written by: {book.author}</div>
+                                <img src={book.image} alt="thumbnail"></img>
+                                <p>{book.description}</p>
                             </div>
                         </Card>
                     ))}

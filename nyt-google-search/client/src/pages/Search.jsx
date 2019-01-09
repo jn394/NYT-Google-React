@@ -9,13 +9,7 @@ import API from "../utils/API";
 class Search extends Component {
     state = {
         search: "",
-        results: [],
-        title: "",
-        author: "",
-        description: "",
-        image: "",
-        link: "",
-        test: ""
+        results: []
     };
 
     componentDidMount() {
@@ -45,34 +39,16 @@ class Search extends Component {
     };
 
     // Once clicked the state is changed to the specific value of the book and a post request to db
-    saveBookBTN = event => {
-        event.preventDefault();
-        this.setState({
-            title: event.target.title,
-            author: event.target.author,
-            description: event.target.description,
-            image: event.target.image,
-            link: event.target.link,
-            test: event.target.test
-        }, () => {
-            API.saveBook({
-                title: this.state.title,
-                // author: this.state.author,
-                // description: this.state.description,
-                // image: this.state.image,
-                // link: this.state.link
-            })
-        });
-    }
+    saveBookBTN = book => {
+        // event.preventDefault();
+        API.saveBook({
+            title: book.title,
+            author: book.author,
+            description: book.description,
+            image: book.image,
+            link: book.link
+        })
 
-    // A check feature for the db post request
-    consoleLog = event => {
-        console.log(`title: ${this.state.title}`);
-        console.log(`author: ${this.state.author}`);
-        console.log(`description: ${this.state.description}`);
-        console.log(`image: ${this.state.image}`);
-        console.log(`link: ${this.state.link}`);
-        console.log(`test: ${this.state.test}`);
     }
 
     render() {
@@ -95,16 +71,18 @@ class Search extends Component {
                             <div className="card-body">
                                 <ViewBTN link={result.volumeInfo.previewLink} />
                                 <SaveBTN
-                                    onClick={this.saveBookBTN}
-                                    title={result.volumeInfo.title}
-                                    author={result.volumeInfo.authors}
-                                    description={result.volumeInfo.description}
-                                    image={result.volumeInfo.imageLinks.thumbnail}
-                                    link={result.volumeInfo.previewLink}
-                                    test="this should work"
+                                    onClick={() => {
+                                        this.saveBookBTN(
+                                            {
+                                                title: result.volumeInfo.title,
+                                                author: result.volumeInfo.authors,
+                                                description: result.volumeInfo.description,
+                                                image: result.volumeInfo.imageLinks.thumbnail,
+                                                link: result.volumeInfo.previewLink
+                                            }
+                                        )
+                                    }}
                                 />
-
-                                <button className="btn" onClick={this.consoleLog}>Console Log</button>
                                 {/* <div>Written by: {result.volumeInfo.authors.map(writers => (
                                     <p key={writers.id}>{writers}</p>
                                 ))}</div> */}
